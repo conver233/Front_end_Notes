@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>x</title>
+    <style>
+      /* div {
+        width: 100px;
+        height: 100px;
+        background: lightblue;
+        margin: 100px;
+      } */
+      div {
+        background-color: aquamarine;
+      }
+    </style>
+    <script>
+      // 1.变量提升
+      console.log(1, yourName);
+      var yourName = "拖延同学";
+      // 2.无块级作用域
+      function fn() {
+        for (var i = 0; i < 5; i++) {}
+      }
+      fn();
+      // 3.声明覆盖
+      var name1 = "a";
+      var name1 = "b";
+      console.log(3, name1);
+    </script>
+  </head>
+  <body>
+    <h2>1.padding与margin有什么区别？</h2>
+    <ol>
+      <li>作用对象不同，padding作用于自身</li>
+      <li>对于content-box和border-box，盒子的宽度会不一样</li>
+    </ol>
+    <div
+      style="
+        width: 200px;
+        height: 200px;
+        background-color: yellowgreen;
+        padding: 10px;
+      "
+    >
+      padding
+    </div>
+    <div
+      style="width: 200px; height: 200px; background-color: aqua; margin: 10px"
+    >
+      margin
+    </div>
+
+    <h2>2.vw与百分比有什么区别？</h2>
+    <ol>
+      <li>参考对象不同：vw -> 浏览器窗口大小；% -> 父级的width</li>
+      <li>父级的width会受到盒子类型（标准/怪异）影响，造成不同表现</li>
+    </ol>
+    <section>
+      <div style="width: 50vw">vw</div>
+      <br />
+      <div style="width: 50%">%</div>
+    </section>
+    <h2>3.行内元素与块级元素</h2>
+    <ol>
+      <li>宽度: 块级占一行，行内又内容决定宽度，并且不能设置宽度</li>
+      <li>换行：块级就算宽度没占满，也会换行</li>
+    </ol>
+    <section>
+      <div style="width: 500px">块级元素</div>
+      <span style="background-color: burlywood">行内元素的宽度</span>
+    </section>
+    <h2>4. 如何支持小字体（&lt;12px）</h2>
+    <p style="font-size: 12px">最小支持12px的字体</p>
+    <p
+      style="
+        font-size: 12px;
+        transform: scale(0.5);
+        -webkit-transform: scale(0.5);
+      "
+    >
+      10px大小的字体
+    </p>
+    <span
+      style="
+        font-size: 12px;
+        display: inline-block;
+        transform: scale(0.5);
+        -webkit-transform: scale(0.5);
+        -webkit-transform-origin-x: 0;
+      "
+    >
+      行内元素需要设置inline-block，对transform生效
+    </span>
+    <span style="font-size: 0.5rem">使用rem设置5px</span>
+  </body>
+</html>
