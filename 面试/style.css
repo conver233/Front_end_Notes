@@ -1,0 +1,10 @@
+@font-face {
+  font-family: "brody";
+  src: url("./assets/sprites.svg");
+}
+.fa {
+  font-family: "brody";
+}
+.fa-phone::before {
+  content: "\1656948382886";
+}

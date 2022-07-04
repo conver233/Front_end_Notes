@@ -92,5 +92,40 @@
       行内元素需要设置inline-block，对transform生效
     </span>
     <span style="font-size: 0.5rem">使用rem设置5px</span>
+    <h2>5.图片懒加载</h2>
+    <section></section>
+    <img src="./assets/9d6bc9ee12f687d0.gif" data-src="./assets/1.jpg" alt="" />
+    <img src="./assets/9d6bc9ee12f687d0.gif" data-src="./assets/2.jpg" alt="" />
+    <img src="./assets/9d6bc9ee12f687d0.gif" data-src="./assets/3.jpg" alt="" />
+    <img src="./assets/9d6bc9ee12f687d0.gif" data-src="./assets/4.jpg" alt="" />
+    <img src="./assets/9d6bc9ee12f687d0.gif" data-src="./assets/5.jpg" alt="" />
+    <img src="./assets/9d6bc9ee12f687d0.gif" data-src="./assets/6.jpg" alt="" />
+    <img src="./assets/9d6bc9ee12f687d0.gif" data-src="./assets/7.jpg" alt="" />
+    <img src="./assets/9d6bc9ee12f687d0.gif" data-src="./assets/8.jpg" alt="" />
+    <script>
+      let imgs = document.getElementsByTagName("img");
+      const len = imgs.length;
+      let n = 0; // 已加载图片数量
+      function lazyLoad() {
+        const seeHeight = document.documentElement.clientHeight; // 视口高度
+        const scrollTop =
+          document.documentElement.scrollTop || document.body.scrollTop; // 滚动条离顶部的高度
+        // console.log(seeHeight, scrollTop);
+        for (let i = n; i < len; i++) {
+          // 当图片出现在可视区域
+          if (imgs[i].offsetTop < seeHeight + scrollTop) {
+            if (
+              imgs[i].getAttribute("src") == "./assets/9d6bc9ee12f687d0.gif"
+            ) {
+              imgs[i].src = imgs[i].getAttribute("data-src");
+            }
+            n++;
+          }
+        }
+      }
+      lazyLoad();
+      // 监听滚动事件
+      window.onscroll = lazyLoad;
+    </script>
   </body>
 </html>
