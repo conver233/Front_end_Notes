@@ -10,6 +10,14 @@ type PickUser = Pick<User, "id" | "age">;
 type MyPick<T, K extends keyof T> = {
   [k in K]: T[k];
 };
+
+type MyPick2<T, K extends keyof T> = {
+  [k in K]: T[K];
+};
+type MyOmit3<T, K extends keyof T> = {
+  [k in Exclude<keyof T, K>]: T[k];
+};
+
 type PickUser2 = MyPick<User, "age">;
 // b.手写omit
 type ex = Exclude<keyof User, "age">;
@@ -57,10 +65,22 @@ let fn: SetPoint;
 fn = (x: number, y) => {};
 
 // interface声明合并
-interface Point {
+// interface Point1 {
+//   x: number;
+// }
+// interface Point2 {
+//   y: number;
+// }
+type Point1 = {
   x: number;
-}
-interface Point {
+};
+type Point2 = {
   y: number;
-}
-let c: Point = { x: 1, y: 3 };
+};
+
+type p3 = Point1 & Point2;
+const x: p3 = {
+  x: 1,
+  y: 2,
+};
+// let c: Point = { x: 1, y: 3 };

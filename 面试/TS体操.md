@@ -11,7 +11,7 @@
 
 #### echarts、d3 可视化经验
 
-1. echarts 饼图，柱状图/折线图，仪表盘
+1. echarts 饼图，柱状图/折线图，仪表盘 mn
 2. antv/g6 流程图 hover，click
 
 #### 易用性优化，性能优化

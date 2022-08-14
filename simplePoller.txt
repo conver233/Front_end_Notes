@@ -1,0 +1,19 @@
+function simplePoller(queryFn, callback) {
+  const delay = (sec) => {
+    setTimeout(() => {
+      if (queryFn()) {
+        callback();
+      } else {
+        delay(1.5 * sec);
+      }
+    }, sec);
+  };
+
+  delay(1000);
+}
+
+项目名称：统一运维管理平台
+主要功能：面向运维工程师，集监控可视化，告警通知，日志记录等为一体，及时通知服务故障，快速溯源问题，提高运维效率
+参与人数：10
+技术栈：Angular11，echarts，antv/g6，grafana
+前端代码量：15w
